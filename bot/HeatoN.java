@@ -6,6 +6,6 @@ public class HeatoN implements Brain
 {
 	public HeatoN()
 	{
-		System.out.print("LOL");
+		System.out.print("LOsdadL");
 	}
 }
