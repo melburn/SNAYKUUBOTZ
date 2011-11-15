@@ -22,11 +22,11 @@ public class HeatoN implements Brain
 		currBoard = gamestate.getBoard();
 		int range = 10;
 		
-		Position fruitPosition = getClosestFruit();
+	/*	Position fruitPosition = getClosestFruit();
 		if(fruitPosition != null && gamestate.distanceBetween(fruitPosition, self.getHeadPosition()) < range)
 		{
 			//TODO pursuit froot
-		}
+		} */
 		
 		Direction previousDirection = self.getCurrentDirection();
 		
@@ -52,7 +52,7 @@ public class HeatoN implements Brain
 		Board board = gamestate.getBoard();
 		
 		// kommer collida dir		
-		if (gamestate.willCollide(self, direction))
+		if (board.isLethal(toCheck))
 		{
 			return false;	
 		}
@@ -84,12 +84,12 @@ public class HeatoN implements Brain
 		ArrayList<Position> fruitList = gamestate.getFruits();
 		if (fruitList == null)
 			return null;
-		Position closestFruit = null;
+		Position closestFruit = fruitList.get(0);
 		int shortestDistance = 10000000;
 		for (Position p : fruitList)
 		{
 			int fruitDistance = gamestate.distanceBetween(self.getHeadPosition(), closestFruit);
-			if (closestFruit != null)
+			if (closestFruit == null)
 			{
 				closestFruit = p;
 				shortestDistance = fruitDistance;
@@ -102,7 +102,5 @@ public class HeatoN implements Brain
 		}
 		return closestFruit;
 	}
-	
-
 }
 
