@@ -6,7 +6,7 @@ public class HeatoN implements Brain
 {
 	public HeatoN()
 	{
-		System.out.print("LOsdadL");
+		System.out.print("LOsdadsadL");
 	}
 	
 	public Direction getNextMove(Snake yourSnake, GameState gamestate)
